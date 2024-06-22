@@ -13,6 +13,7 @@ function App() {
       <Hero />
       <HeadlineCard />
       <Food />
+
       <Category />
       <Footer />
     </>

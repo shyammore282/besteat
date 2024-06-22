@@ -1,20 +1,20 @@
 import React, { useState } from "react";
-import { list } from "../../data/Data";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBars,
   faCartPlus,
   faSearch,
 } from "@fortawesome/free-solid-svg-icons";
+import MobDrawer from "../mobilenav/MobDrawer";
 
 const Header = () => {
   // state for nav
   const [nav, setNav] = useState(false);
-  
+
   return (
     <>
-      <header className=" w-full flex container mx-auto p-4">
-        <nav className="flex items-center h-10 justify-between mx-8 w-full">
+      <header className=" w-full flex container mx-auto p-4 shadow-xl rounded-xl">
+        <nav className="flex items-center h-10 justify-between mx-8 w-full ">
           {/*----left side of navbar---- */}
           <div className="flex items-center ">
             <div
@@ -52,36 +52,7 @@ const Header = () => {
           )}
 
           {/*---side drawer menu---- */}
-          <div
-            className={
-              nav
-                ? "fixed top-0 left-0 sm:w-[250px] lg:w-[300px] h-screen bg-white  z-10 duration-300"
-                : "fixed top-0 left-[-350px] w-[300px] h-screen bg-white z-10 duration-300"
-            }
-          >
-            {/*---cross button--- */}
-            <i
-              className=" absolute right-4 top-4 cursor-pointer"
-              onClick={() => setNav(!nav)}
-            >
-              gfg
-            </i>
-            <h2 className=" text-xl font-medium p-4">
-              Best <span className=" font-bold">Eats</span>
-            </h2>
-            <ul className="p-4 text-gray-800">
-              {list.map((v, i) => {
-                return (
-                  <div className="" key={i}>
-                    <li className="text-xl py-1 flex hover:cursor-pointer ">
-                      <span className="px-2">{v.icon}</span>
-                      {v.text}
-                    </li>
-                  </div>
-                );
-              })}
-            </ul>
-          </div>
+          <MobDrawer nav={nav} setNav={setNav} />
         </nav>
       </header>
     </>

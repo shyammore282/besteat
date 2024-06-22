@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { data } from "../../data/Data";
+import ByPrice from "../filter/ByPrice";
+import ByCategory from "../filter/ByCategory";
 
 const Food = () => {
   // state for the foods
@@ -27,77 +29,15 @@ const Food = () => {
     <>
       <section className="w-full mx-auto p-4 py-12">
         <h1 className=" text-orange-600 text-3xl  text-center font-bold">
-          Top Rated Menu Items
+          Top Rated Foods
         </h1>
         {/*----filter row---- */}
         <div className=" flex flex-col lg:flex-row justify-between">
           {/*---filter by types----  */}
-          <div className="">
-            <h2 className=" font-bold text-gray-700 py-2">Filter Types</h2>
-            <div className=" flex flex-wrap justify-between">
-              <button
-                onClick={() => setFoods(data)}
-                className="m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white hover:cursor-pointer"
-              >
-                All
-              </button>
-              <button
-                onClick={() => filterType("burger")}
-                className="m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white hover:cursor-pointer"
-              >
-                Burgers
-              </button>
-              <button
-                onClick={() => filterType("pizza")}
-                className="m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white hover:cursor-pointer"
-              >
-                Pizza
-              </button>
-              <button
-                onClick={() => filterType("salad")}
-                className="m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white hover:cursor-pointer"
-              >
-                Salads
-              </button>
-              <button
-                onClick={() => filterType("chicken")}
-                className="m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white hover:cursor-pointer"
-              >
-                chicken
-              </button>
-            </div>
-          </div>
+          <ByCategory filterType={filterType} setFoods={setFoods} data={data} />
 
           {/*----filter by price--- */}
-          <div className="">
-            <h2 className="font-bold text-gray-700 py-2">Filter Price</h2>
-            <div className=" flex flex-wrap justify-between max-w-[390px] w-full">
-              <button
-                onClick={() => filterPrice("Rs.300")}
-                className="m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white hover:cursor-pointer"
-              >
-                Rs.300
-              </button>
-              <button
-                onClick={() => filterPrice("Rs.400")}
-                className="m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white hover:cursor-pointer"
-              >
-                Rs.400
-              </button>
-              <button
-                onClick={() => filterPrice("Rs.500")}
-                className="m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white hover:cursor-pointer"
-              >
-                Rs.500
-              </button>
-              <button
-                onClick={() => filterPrice("Rs.600")}
-                className="m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white hover:cursor-pointer"
-              >
-                Rs.600
-              </button>
-            </div>
-          </div>
+          <ByPrice filterPrice={filterPrice} />
         </div>
 
         {/*----display images--- */}
