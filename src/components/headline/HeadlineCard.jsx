@@ -1,6 +1,6 @@
 import React from "react";
 
-const HeadlineCard = () => {
+const HeadlineCard = ({ setOrder }) => {
   return (
     <>
       <section className=" w-full mx-auto p-4 py-9 grid md:grid-cols-3 gap-6">
@@ -11,7 +11,10 @@ const HeadlineCard = () => {
               Sun's Out,BOGO's Out
             </p>
             <p className="px-3 pb-1">Throught 8/26</p>
-            <button className=" border-white bg-white text-black mx-2 py-1 px-3 rounded-lg absolute bottom-2">
+            <button
+              onClick={() => setOrder(true)}
+              className=" border-none bg-[#5be3bc] text-white mx-2 py-1 px-3 rounded-lg absolute bottom-2"
+            >
               Order Now
             </button>
           </div>
@@ -26,7 +29,10 @@ const HeadlineCard = () => {
           <div className=" absolute text-gray-200 w-full h-full bg-black/40 rounded-2xl">
             <p className=" font-bold text-[21px]  px-2 pt-2">New Restaurants</p>
             <p className="px-3 pb-1">Added Daily</p>
-            <button className=" border-white bg-white text-black mx-2 py-1 px-3 rounded-lg absolute bottom-2">
+            <button
+              onClick={() => setOrder(true)}
+              className="  border-none bg-[#5be3bc] text-white mx-2 py-1 px-3 rounded-lg absolute bottom-2"
+            >
               Order Now
             </button>
           </div>
@@ -43,7 +49,10 @@ const HeadlineCard = () => {
               We Deliver Desserts Too
             </p>
             <p className="px-3 pb-1">Tasty Treats</p>
-            <button className=" border-white bg-white text-black mx-2 py-1 px-3 rounded-lg absolute bottom-2">
+            <button
+              onClick={() => setOrder(true)}
+              className="  border-none bg-[#5be3bc] text-white mx-2 py-1 px-3 rounded-lg absolute bottom-2"
+            >
               Order Now
             </button>
           </div>

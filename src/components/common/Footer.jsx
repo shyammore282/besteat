@@ -3,9 +3,9 @@ import React from "react";
 const Footer = () => {
   return (
     <>
-      <section className="w-full h-10 py-8 bg-black/90 text-center">
+      <section className=" flex items-center w-full h-20 bg-black/90 justify-center">
         <p className=" text-gray-400 text-center">
-          © 2021 BestEats. Designed By Trusted Platform.
+          &copy; 2021 BestEats. Designed By Trusted Platform.
         </p>
       </section>
     </>

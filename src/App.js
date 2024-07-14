@@ -1,22 +1,25 @@
+import React from "react";
 import "./App.css";
 import Header from "./components/common/Header";
-import Hero from "./components/hero/Hero";
-import HeadlineCard from "./components/headline/HeadlineCard";
-import Food from "./components/food/Food";
-import Category from "./components/category/Category";
 import Footer from "./components/common/Footer";
+import { Routes, Route } from "react-router-dom";
+import Cart from "./pages/cart/Cart";
+import Home from "./pages/home/Home";
+import Favorites from "./pages/favorites/Favorites";
+import Details from "./pages/details/Details";
 
 function App() {
   return (
-    <>
+    <div>
       <Header />
-      <Hero />
-      <HeadlineCard />
-      <Food />
-
-      <Category />
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/favorites" element={<Favorites />} />
+        <Route exact path="/cart" element={<Cart />} />
+        <Route exact path="/details/:id" element={<Details />} />
+      </Routes>
       <Footer />
-    </>
+    </div>
   );
 }
 

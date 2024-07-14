@@ -1,6 +1,7 @@
 import React from "react";
 import { RxCross2 } from "react-icons/rx";
 import { list } from "../../data/Data";
+import { NavLink } from "react-router-dom";
 
 const MobDrawer = ({ nav, setNav }) => {
   return (
@@ -15,7 +16,7 @@ const MobDrawer = ({ nav, setNav }) => {
         {/*---cross button--- */}
 
         <RxCross2
-          className=" absolute top-4 right-4"
+          className=" absolute top-4 right-4 cursor-pointer"
           onClick={() => setNav(!nav)}
           size={25}
         />
@@ -27,10 +28,12 @@ const MobDrawer = ({ nav, setNav }) => {
           {list.map((v, i) => {
             return (
               <div className="" key={i}>
-                <li className="text-xl py-1 flex hover:cursor-pointer ">
-                  <span className="px-2">{v.icon}</span>
-                  {v.text}
-                </li>
+                <NavLink to={v.path}>
+                  <li className="text-xl py-1 flex hover:cursor-pointer ">
+                    <span className="px-2">{v.icon}</span>
+                    {v.text}
+                  </li>
+                </NavLink>
               </div>
             );
           })}
